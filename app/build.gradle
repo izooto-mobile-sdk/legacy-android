@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.app.izoototest"
+        minSdkVersion 18
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.0.3"
+        testInstrumentationRunner "android.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                izooto_app_id : 40493,
+        ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        //noinspection GradleCompatible
+      //  api 'com.android.support:support-v4:[26.0.0, 27.99.99]'
+
+        //noinspection GradleCompatible
+       // implementation 'com.android.support:appcompat-v7:28.0.0'
+        //noinspection GradleCompatible
+      // api 'com.android.support:support-v4:[26.0.0, 27.99.99]'
+       // implementation 'com.google.android.material:material:1.0.0'
+        implementation 'com.android.support:support-v4:26.0.0'
+        implementation 'com.android.support:appcompat-v7:26.0.0'
+
+      //  implementation 'com.android.support:design:28.0.0'
+//        implementation 'com.izooto:notification-sdk:1.0.1'
+    }
+}
+dependencies {
+    implementation project(path: ':izooto')
+}
